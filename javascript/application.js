@@ -4,9 +4,9 @@ const mostRecentGuess = document.querySelector('.mostRecentGuess');
 const correctGuess = document.querySelector('.correctGuess');
 const guessField = document.querySelector('.userGuess');
 const highLow = document.querySelector('.highLow');
-const gameReset = document.querySelector('.gameReset');
+const resetGame = document.querySelector('.resetGame');
 const instructions = document.getElementById('instructions');
-const gameState = document.querySelector('.gameState');
+const gameStatus = document.querySelector('.gameStatus');
 const minRangeField = document.querySelector('.minRange');
 const maxRangeField = document.querySelector('.maxRange');
 const setRange = document.querySelector('.setRange');
@@ -50,7 +50,7 @@ function setNumber(event) {
 };
 
 submitGuess.addEventListener('click', guessCheck);
-gameReset.addEventListener('click', restartGame);
+resetGame.addEventListener('click', restartGame);
 
 function guessCheck(event) {
   event.preventDefault();
@@ -64,9 +64,9 @@ function guessCheck(event) {
       submitGuess.disabled = true;
       guessField.disabled = true;
     } else if (userGuess > randomNumber) {
-      highLow.textContent = "That is too high!";
+      highLow.textContent = "Your guess is too high.";
     } else if (userGuess < randomNumber) {
-      highLow.textContent = "That is too low!";
+      highLow.textContent = "Your guess is too low.";
     }
     guessField.value = '';
     guessField.focus();
@@ -77,7 +77,7 @@ function validateGuess(guess) {
   let guessError = document.querySelector('.error');
   guessError.textContent = '';
   if (isNaN(guess)) {
-    guessError.textContent = "You need to guess a numberical number.";
+    guessError.textContent = "Your guess needs to be a number.";
     return false;
   } else if (guess < minRange || guess > maxRange) {
     guessError.textContent = 'Your guess should be between ' + minRange + ' and ' + maxRange;
@@ -88,8 +88,8 @@ function validateGuess(guess) {
 };
 
 function restartGame() {
-  gameReset.disabled = true;
-  let messages = document.querySelectorAll('.guessState p');
+  resetGame.disabled = true;
+  let messages = document.querySelectorAll('.guessStatus p');
   for (i = 0; i < messages.length; i++) {
     messages[i].textContent = '';
   };
