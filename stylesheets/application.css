@@ -44,3 +44,11 @@ header span {
 #instructions p {
   padding: 5px;
 }
+
+#guessForm {
+
+}
+
+#guessForm input {
+  margin: 10px;
+}
