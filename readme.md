@@ -11,9 +11,9 @@ Game Display Features:
  - A button that resets the game
  - Display the user’s most recent guess
  - Display results and feedback:
- - If their guess is too high, it should display: “That is too high”
- - If their guess is too low, it should display: “That is too low”
- - If the guess is correct, it should display: “BOOM!”
+   - If their guess is too high, it should display: “Your guess is too high.”
+   - If their guess is too low, it should display: “Your guess is too low.”
+   - If the guess is correct, it should display: “BOOM!”
 
 Game Functionality Features:
  - The input field should only accept numerical entries, within the defined min and max range
