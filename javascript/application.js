@@ -1,4 +1,4 @@
-const guessSubmit = document.querySelector('.guessSubmit');
+const submitGuess = document.querySelector('.submitGuess');
 const mostRecentGuess = document.querySelector('.mostRecentGuess');
 const correctGuess = document.querySelector('.correctGuess');
 const guessField = document.querySelector('.userGuess');
@@ -6,7 +6,7 @@ const highLow = document.querySelector('.highLow');
 
 guessField.focus();
 
-guessSubmit.addEventListener('click', guessCheck);
+submitGuess.addEventListener('click', guessCheck);
 
 function guessCheck() {
   let userGuess = Number(guessField.value);
@@ -14,13 +14,13 @@ function guessCheck() {
   if (userGuess === randomNumber) {
     highLow.textContent = '';
     correctGuess.textContent = "BOOM!";
-    guessSubmit.disabled = true;
+    submitGuess.disabled = true;
     guessField.disabled = true;
     resetGame();
   } else if (userGuess > randomNumber) {
-    highLow.textContent = "That is too high!";
+    highLow.textContent = "That is too high";
   } else if (userGuess < randomNumber) {
-    highLow.textContent = "That is too low!";
+    highLow.textContent = "That is too low";
   }
 
   guessField.value = '';
