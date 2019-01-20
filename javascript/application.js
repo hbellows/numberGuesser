@@ -89,7 +89,7 @@ function validateGuess(guess) {
 
 function restartGame() {
   resetGame.disabled = true;
-  let messages = document.querySelectorAll('.guessStatus');
+  let messages = document.querySelectorAll('.guessStatus p');
   for (i = 0; i < messages.length; i++) {
     messages[i].textContent = '';
   };
