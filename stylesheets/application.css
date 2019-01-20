@@ -52,3 +52,16 @@ header span {
 #guessForm input {
   margin: 10px;
 }
+
+.button {
+  color: #FFFFFF;
+  background-color: #929497;
+  border-radius: 12px;
+  font-weight: 300;
+  font-size: 13px;
+  width: 130px;
+}
+
+.button:hover {
+  background: #EB008B;
+}
