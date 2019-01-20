@@ -1,46 +1,99 @@
+var randomNumber;
 const submitGuess = document.querySelector('.submitGuess');
 const mostRecentGuess = document.querySelector('.mostRecentGuess');
 const correctGuess = document.querySelector('.correctGuess');
 const guessField = document.querySelector('.userGuess');
 const highLow = document.querySelector('.highLow');
+const gameReset = document.querySelector('.gameReset');
+const instructions = document.getElementById('instructions');
+const gameState = document.querySelector('.gameState');
+const minRangeField = document.querySelector('.minRange');
+const maxRangeField = document.querySelector('.maxRange');
+const setRange = document.querySelector('.setRange');
+var gameRound = 1;
 
-guessField.focus();
+document.onload = gameStart();
+
+function gameStart() {
+  if (gameRound === 1) {
+    instructions.style.display = 'block';
+    minRangeField.focus();
+  } else {
+    setNumber(event);
+    guessField.focus();
+  }
+  guessField.disabled = false;
+  submitGuess.disabled = false;
+  let round = document.querySelector('.round');
+  round.textContent = "Round: " + gameRound;
+}
+
+setRange.addEventListener('click', setNumber);
+var minRange;
+var maxRange;
+
+function setNumber(event) {
+  event.preventDefault();
+  instructions.style.display = 'none';
+  if (gameRound === 1) {
+    minRange = Number(minRangeField.value);
+    maxRange = Number(maxRangeField.value);
+  } else {
+    maxRange += 10;
+    minRange < 11 ? minRange = 0 : minRange -= 10;
+  }
+  let guessRange = maxRange - minRange;
+  randomNumber = Math.floor((Math.random() * (guessRange + 1)) + minRange);
+  let gameRange = document.querySelector('.gameRange')
+  gameRange.textContent = "The Secret Number is between " + minRange + " and " + maxRange
+  guessField.focus()
+};
 
 submitGuess.addEventListener('click', guessCheck);
+gameReset.addEventListener('click', restartGame);
 
-function guessCheck() {
+function guessCheck(event) {
+  event.preventDefault();
   let userGuess = Number(guessField.value);
-  if (validateGuess(userGuess)) {
-    mostRecentGuess.textContent = 'Your Most Recent Guess: ' + userGuess;
 
+  if (validateGuess(userGuess)) {
+    mostRecentGuess.textContent = userGuess;
     if (userGuess === randomNumber) {
       highLow.textContent = '';
       correctGuess.textContent = "BOOM!";
-      guessSubmit.disabled = true;
+      submitGuess.disabled = true;
       guessField.disabled = true;
-      resetGame();
     } else if (userGuess > randomNumber) {
       highLow.textContent = "That is too high!";
     } else if (userGuess < randomNumber) {
       highLow.textContent = "That is too low!";
     }
-
     guessField.value = '';
     guessField.focus();
   };
 };
 
-const guessError = document.querySelector('.error');
-
 function validateGuess(guess) {
+  let guessError = document.querySelector('.error');
   guessError.textContent = '';
   if (isNaN(guess)) {
     guessError.textContent = "You need to guess a numberical number.";
     return false;
-  } else if (guess < min || guess > max) {
-    guessError.textContent = 'Your guess should be between ' + min + ' and ' + max;
+  } else if (guess < minRange || guess > maxRange) {
+    guessError.textContent = 'Your guess should be between ' + minRange + ' and ' + maxRange;
     return false;
   } else {
     return true;
   }
-}
+};
+
+function restartGame() {
+  gameReset.disabled = true;
+  let messages = document.querySelectorAll('.guessState p');
+  for (i = 0; i < messages.length; i++) {
+    messages[i].textContent = '';
+  };
+  guessField.value = '';
+  gameRound++;
+  gameStart();
+};

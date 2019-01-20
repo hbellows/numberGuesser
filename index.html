@@ -19,9 +19,9 @@
       <p>When you get the answer correct, the next round's minimum range will decrease by
         10 and the maximum will increase by 10.</p>
         <form>
-          <input type='text' class='rangeMin' placeholder="Minimum">
-          <input type='text' class='rangeMax' placeholder="Maximum">
-          <input type='submit' value='Set Range' class='rangeSet button'>
+          <input type='text' class='minRange' placeholder="Minimum">
+          <input type='text' class='maxRange' placeholder="Maximum">
+          <input type='submit' value='Set Range' class='setRange button'>
         </form>
     </div>
 
@@ -29,7 +29,7 @@
       <form id='guessForm'>
         <input type='text' class='userGuess' placeholder="Enter your guess">
         <p id='errorMessage'></p>
-        <input type='submit' value='Guess' class='guessSubmit button'>
+        <input type='submit' value='Guess' class='submitGuess button'>
         <button class='clearGuess button' disabled>Clear Guess</button>
       </form>
     </div>
@@ -38,14 +38,14 @@
       <p class='error'></p>
     </div>
 
-    <div class='guessState'>
+    <div class='guessStatus'>
       <p>Your Most Recent Guess</p>
       <p class='mostRecentGuess'></p>
       <p class='highLow'></p>
       <p class='correctGuess'></p>
     </div>
     
-    <div class='gameState'>
+    <div class='gameStatus'>
       <p class='gameRange'></p>
       <p class='round'></p>
     </div>
