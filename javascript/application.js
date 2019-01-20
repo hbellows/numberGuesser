@@ -79,8 +79,8 @@ function setNumber(event) {
   // takes the current maxRange and adds 10
     maxRange += 10;
   // takes the current minRange and checks if its 11 or less, if so, just set it
-  // to zero, otherwise, decrement by 10. Didn't want negative numbers so stopping
-  // at zero
+  // to one, otherwise, decrement by 10. Didn't want negative numbers so stopping
+  // at one
     minRange < 11 ? minRange = 1 : minRange -= 10;
   }
   // need the range of the guesses in order to properly generate the random number
