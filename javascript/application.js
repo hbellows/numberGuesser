@@ -40,7 +40,7 @@ function setNumber(event) {
     maxRange = Number(maxRangeField.value);
   } else {
     maxRange += 10;
-    minRange < 11 ? minRange = 0 : minRange -= 10;
+    minRange < 11 ? minRange = 1 : minRange -= 10;
   }
   let guessRange = maxRange - minRange;
   randomNumber = Math.floor((Math.random() * (guessRange + 1)) + minRange);
