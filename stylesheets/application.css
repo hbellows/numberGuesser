@@ -21,3 +21,26 @@ header span {
   background-color: #D0D2D3;
   color: #FFFFFF;
 }
+
+#instructions {
+  text-align: center;
+  color: #ED458B;
+  background: #E6E7E8;
+  padding: 25px;
+  line-height: 20px;
+  font-weight: 300;
+}
+
+#instructions form {
+  padding: 10px;
+}
+
+#instructions input {
+  padding: 8px;
+  font-size: 11px;
+  color: #404041;
+}
+
+#instructions p {
+  padding: 5px;
+}
