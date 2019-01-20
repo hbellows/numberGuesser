@@ -12,6 +12,7 @@ function guessCheck() {
   let userGuess = Number(guessField.value);
   mostRecentGuess.textContent = 'Your Most Recent Guess: ' + userGuess;
   if (userGuess === randomNumber) {
+    highLow.textContent = '';
     correctGuess.textContent = "BOOM!";
     guessSubmit.disabled = true;
     guessField.disabled = true;
@@ -21,7 +22,7 @@ function guessCheck() {
   } else if (userGuess < randomNumber) {
     highLow.textContent = "That is too low!";
   }
-  
+
   guessField.value = '';
   guessField.focus();
 };
