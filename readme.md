@@ -4,7 +4,7 @@ This is a simple guessing game using javascript/jquery, html and css.
 
 The game will select a random number between one and 100.  The user will attempt to guess the chosen number.
 
-See the deployed version at https://hbellows.github.io/number_guesser/
+See the deployed version at https://hbellows.github.io/numberGuesser/
 
 Game Display Features:
  - An input field for guessing the number
