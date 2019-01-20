@@ -65,3 +65,29 @@ header span {
 .button:hover {
   background: #EB008B;
 }
+
+
+.userGuess {
+  width: 280px;
+  height: 25px;
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.guessState {
+  margin: 10px;
+  font-weight: 300;
+  padding: 20px;
+}
+
+.mostRecentGuess {
+  font-weight: 300;
+  color: #ED458B;
+  font-size: 50px;
+  margin: 10px;
+}
+
+.gameState {
+  margin: 10px;
+}
